@@ -3,11 +3,16 @@
     <v-app-bar extended>
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-      <v-app-bar-title>Informaticki projekt 2 - Auta</v-app-bar-title>
+      <v-app-bar-title>Informaticki projekt 2 - Knjige</v-app-bar-title>
 
       <v-spacer></v-spacer>
 
-      <v-btn icon="mdi-dots-vertical">
+      <v-btn @click="goToHomePage">
+        Početna
+      </v-btn>
+
+      <v-btn @click="goToAboutPage">
+        O nama
       </v-btn>
     </v-app-bar>
 
@@ -18,12 +23,21 @@
 </template>
 
 <script>
-
 export default {
   name: 'App',
 
   data: () => ({
-    //
+    // Vaši podaci ovdje
   }),
+
+  methods: {
+    goToAboutPage() {
+      this.$router.push('/about');
+    },
+
+    goToHomePage() {
+      this.$router.push('/');
+    }
+  }
 }
 </script>
