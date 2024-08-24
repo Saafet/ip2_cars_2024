@@ -1,27 +1,20 @@
 <template>
-  <v-card height="200"
-          class="book pa-2 d-flex flex-column">
-    <h3 class="text-center book-title">{{ book.title }}</h3>
-    <h5>{{ book.author}}</h5>
-    <h6>Cijena:{{ book.price}}</h6>
+  <v-card>
+    <v-card-title>{{ book.title }}</v-card-title>
+    <v-card-subtitle>{{ book.author }}</v-card-subtitle>
+    <v-card-text>Price: {{ book.price }}</v-card-text>
+    <v-card-actions>
+      <v-btn @click="$emit('editBook', book)">Uredi</v-btn>
+      <v-btn @click="$emit('deleteBook', book)">Obrisi</v-btn> <!-- Emit entire book object -->
+    </v-card-actions>
   </v-card>
 </template>
 
 <script>
 export default {
-  props: ['book']
-}
+  name: 'BookComponent',
+  props: {
+    book: Object
+  }
+};
 </script>
-
-<style>
-.book {
-  background: khaki !important;
-}
-
-.book-title {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-}
-</style>
